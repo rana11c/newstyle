@@ -35,6 +35,15 @@ class ClothesManager {
             const outfitElement = document.createElement('div');
             outfitElement.className = 'outfit-display';
             
+            // Add outfit image if available
+            if (outfit.image) {
+                const outfitImage = document.createElement('div');
+                outfitImage.className = 'outfit-image';
+                outfitImage.innerHTML = `<img src="images/outfits/${outfit.image}.svg" alt="${outfit.name}" 
+                    onerror="this.onerror=null; this.style.display='none';">`;
+                outfitElement.appendChild(outfitImage);
+            }
+            
             // Add outfit name
             const outfitName = document.createElement('h3');
             outfitName.className = 'outfit-name';

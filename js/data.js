@@ -174,17 +174,17 @@ const DEFAULT_CLOTHES = [
     },
     {
         id: 9,
-        name: 'سترة شتوية',
-        type: 'سترة',
+        name: 'معطف شتوي',
+        type: 'معطف',
         category: 'علوي',
         minTemp: -5,
         maxTemp: 10,
         weather: ['غائم', 'ممطر', 'ثلجي'],
-        color: 'أسود',
-        image: 'winter-jacket',
+        color: 'أزرق',
+        image: 'wintercoat',
         price: 299,
         rating: 4.9,
-        description: 'سترة شتوية سميكة توفر الدفء في أبرد الأيام، مقاومة للماء',
+        description: 'معطف شتوي سميك يوفر الدفء في أبرد الأيام، مقاوم للماء ومبطن',
         favorite: false
     },
     {
