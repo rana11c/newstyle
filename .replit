@@ -2,7 +2,7 @@ modules = ["nodejs-20", "python-3.11"]
 
 [nix]
 channel = "stable-24_05"
-packages = ["zip", "wget", "curl", "unzip"]
+packages = ["curl", "unzip", "wget", "zip"]
 
 [workflows]
 runButton = "Project"
