@@ -150,6 +150,31 @@ html, body {
     min-height: 150px;
 }
 
+.outfit-display {
+    text-align: center;
+}
+
+.outfit-image {
+    margin-bottom: 16px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outfit-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.outfit-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+}
+
 .error-container {
     display: flex;
     flex-direction: column;
@@ -1548,27 +1573,47 @@ input:checked + .slider:before {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    justify-content: center;
     margin-bottom: 16px;
 }
 
 .outfit-item {
-    width: calc(50% - 6px);
+    width: calc(33% - 8px);
     background-color: var(--white);
     border-radius: var(--border-radius);
     padding: 12px;
     text-align: center;
     box-shadow: var(--shadow);
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.outfit-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .outfit-item-icon {
     font-size: 2rem;
     margin-bottom: 8px;
     color: var(--text-lighter);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outfit-item-icon img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
 }
 
 .outfit-item-name {
     font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .outfit-actions {

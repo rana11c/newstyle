@@ -62,27 +62,36 @@ class ClothesManager {
                 // Item icon
                 const itemIcon = document.createElement('div');
                 itemIcon.className = 'outfit-item-icon';
-                const icon = document.createElement('i');
                 
-                // Choose icon based on item type
-                switch(item.category) {
-                    case 'علوي':
-                        icon.className = 'fas fa-tshirt';
-                        break;
-                    case 'سفلي':
-                        icon.className = 'fas fa-socks';
-                        break;
-                    case 'كامل':
-                        icon.className = 'fas fa-user-tie';
-                        break;
-                    case 'أحذية':
-                        icon.className = 'fas fa-shoe-prints';
-                        break;
-                    default:
-                        icon.className = 'fas fa-tshirt';
+                // Use SVG images if available, fallback to icons
+                if (item.image && !item.image.includes('-')) {
+                    // Use SVG image
+                    itemIcon.innerHTML = `<img src="images/clothes/${item.image}.svg" alt="${item.name}" 
+                        onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\\'fas fa-tshirt\\'></i>';">`;
+                } else {
+                    // Use font awesome icon based on category
+                    const icon = document.createElement('i');
+                    
+                    // Choose icon based on item type
+                    switch(item.category) {
+                        case 'علوي':
+                            icon.className = 'fas fa-tshirt';
+                            break;
+                        case 'سفلي':
+                            icon.className = 'fas fa-socks';
+                            break;
+                        case 'كامل':
+                            icon.className = 'fas fa-user-tie';
+                            break;
+                        case 'أحذية':
+                            icon.className = 'fas fa-shoe-prints';
+                            break;
+                        default:
+                            icon.className = 'fas fa-tshirt';
+                    }
+                    
+                    itemIcon.appendChild(icon);
                 }
-                
-                itemIcon.appendChild(icon);
                 itemElement.appendChild(itemIcon);
                 
                 // Item name
