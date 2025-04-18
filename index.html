@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ستايلر - مساعدك الشخصي للملابس</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-actions right">
+                <button class="action-btn" id="menu-btn">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+                <button class="action-btn" id="share-btn">
+                    <i class="fas fa-share-nodes"></i>
+                </button>
+                <div class="site-title">ستايلر</div>
+            </div>
+            <div class="header-actions left">
+                <button class="action-btn" id="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button class="action-btn" id="expand-btn">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <button class="action-btn" id="notifications-btn">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <button class="action-btn profile-btn">
+                    <i class="fas fa-circle-info"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Weather Info -->
+        <section class="weather-info">
+            <div class="date-weather">
+                <div class="current-date" id="current-date">الاثنين، ١١ شوال</div>
+                <div class="current-weather">
+                    <span class="temp" id="current-temp">27</span>°
+                    <span class="weather-desc" id="current-weather-desc">مشمس</span>
+                </div>
+            </div>
+            <div class="refresh-container">
+                <button class="refresh-btn" id="refresh-weather">
+                    <i class="fas fa-rotate"></i>
+                    <span>تحديث</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Today's Look -->
+        <section class="todays-look">
+            <h2>إطلالة اليوم</h2>
+            <div class="look-container" id="todays-look">
+                <div class="error-container">
+                    <p class="error-message">حدث خطأ أثناء تحميل الإطلالة</p>
+                    <button class="retry-btn">إعادة المحاولة</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather Suggestions -->
+        <section class="weather-suggestions">
+            <h2>اقتراحات حسب الطقس</h2>
+            <div class="suggestion-cards">
+                <div class="suggestion-card">
+                    <h3>اليوم</h3>
+                    <div class="weather-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="suggestion-temp">27°</div>
+                    <div class="suggestion-desc">مشمس</div>
+                    <div class="clothing-suggestion">اقتراح: ملابس متوسطة</div>
+                </div>
+                <div class="suggestion-card">
+                    <h3>غداً</h3>
+                    <div class="weather-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <div class="suggestion-temp">23°</div>
+                    <div class="suggestion-desc">غائم جزئياً</div>
+                    <div class="clothing-suggestion">اقتراح: طبقات خفيفة</div>
+                </div>
+                <div class="suggestion-card">
+                    <h3>بعد غد</h3>
+                    <div class="weather-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="suggestion-temp">22°</div>
+                    <div class="suggestion-desc">غائم</div>
+                    <div class="clothing-suggestion">اقتراح: سترة خفيفة</div>
+                </div>
+                <div class="suggestion-card">
+                    <h3>بعد ثلاثة أيام</h3>
+                    <div class="weather-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="suggestion-temp">29°</div>
+                    <div class="suggestion-desc">مشمس</div>
+                    <div class="clothing-suggestion">اقتراح: ملابس صيفية</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Items Section -->
+        <section class="featured-items">
+            <h2>ملابس مقترحة</h2>
+            <div class="featured-grid" id="featured-clothes">
+                <!-- Items will be loaded here via JS -->
+            </div>
+        </section>
+
+        <!-- Floating Action Button -->
+        <button class="fab-button">
+            <i class="fas fa-plus"></i>
+        </button>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" class="nav-item active" data-page="clothes">
+                <i class="fas fa-tshirt"></i>
+                <span>ملابس</span>
+            </a>
+            <a href="#" class="nav-item" data-page="suggestions">
+                <i class="fas fa-lightbulb"></i>
+                <span>اقتراحات</span>
+            </a>
+            <a href="#" class="nav-item" data-page="shopping">
+                <i class="fas fa-shopping-bag"></i>
+                <span>تسوق</span>
+            </a>
+            <a href="#" class="nav-item" data-page="profile">
+                <i class="fas fa-user"></i>
+                <span>حسابي</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Login/Signup Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="login">تسجيل الدخول</button>
+                <button class="tab-btn" data-tab="signup">إنشاء حساب</button>
+            </div>
+            
+            <div class="tab-content active" id="login-tab">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">اسم المستخدم</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">كلمة المرور</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">تسجيل الدخول</button>
+                </form>
+            </div>
+            
+            <div class="tab-content" id="signup-tab">
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="signup-username">اسم المستخدم</label>
+                        <input type="text" id="signup-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">البريد الإلكتروني</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">كلمة المرور</label>
+                        <input type="password" id="signup-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password-confirm">تأكيد كلمة المرور</label>
+                        <input type="password" id="signup-password-confirm" required>
+                    </div>
+                    <button type="submit" class="btn-primary">إنشاء حساب</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/clothes.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

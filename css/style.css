@@ -1,0 +1,474 @@
+:root {
+    --primary-color: #ff6b8b;
+    --primary-light: #ffcbd6;
+    --primary-dark: #e63e60;
+    --secondary-color: #f5f5f5;
+    --text-color: #333;
+    --text-light: #666;
+    --text-lighter: #999;
+    --white: #fff;
+    --error-color: #ff6b8b;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --border-radius: 12px;
+    --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-heavy: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --header-height: 60px;
+    --bottom-nav-height: 60px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    direction: rtl;
+    background-color: #f9f9f9;
+    height: 100%;
+}
+
+/* App Container */
+.app-container {
+    max-width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: var(--bottom-nav-height);
+}
+
+/* Header Styles */
+.app-header {
+    height: var(--header-height);
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+}
+
+.header-actions.right {
+    flex-direction: row-reverse;
+}
+
+.action-btn {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 12px;
+}
+
+.profile-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Weather Info */
+.weather-info {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current-date {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.current-weather {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.temp {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.refresh-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.refresh-btn i {
+    font-size: 1rem;
+}
+
+/* Today's Look */
+.todays-look {
+    padding: 16px;
+}
+
+.todays-look h2 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.look-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    min-height: 150px;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-bottom: 16px;
+}
+
+.retry-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Weather Suggestions */
+.weather-suggestions {
+    padding: 16px;
+}
+
+.weather-suggestions h2 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.suggestion-cards {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scrollbar-width: thin;
+}
+
+.suggestion-cards::-webkit-scrollbar {
+    height: 4px;
+}
+
+.suggestion-cards::-webkit-scrollbar-thumb {
+    background-color: var(--primary-light);
+    border-radius: 4px;
+}
+
+.suggestion-card {
+    min-width: 120px;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 12px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.suggestion-card h3 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.weather-icon {
+    font-size: 1.5rem;
+    margin: 8px 0;
+    color: var(--warning-color);
+}
+
+.suggestion-temp {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.suggestion-desc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.clothing-suggestion {
+    font-size: 0.8rem;
+    background-color: var(--primary-light);
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: var(--primary-dark);
+    margin-top: 8px;
+}
+
+/* Featured Items */
+.featured-items {
+    padding: 16px;
+}
+
+.featured-items h2 {
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.clothing-item {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.clothing-item-img {
+    height: 150px;
+    width: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-lighter);
+}
+
+.clothing-item-details {
+    padding: 12px;
+}
+
+.clothing-item-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.clothing-item-type {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.clothing-item-temp {
+    display: inline-block;
+    background-color: var(--primary-light);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    color: var(--primary-dark);
+    margin-top: 8px;
+}
+
+/* Floating Action Button */
+.fab-button {
+    position: fixed;
+    bottom: calc(var(--bottom-nav-height) + 20px);
+    right: 50%;
+    transform: translateX(50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    box-shadow: var(--shadow-heavy);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 90;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--bottom-nav-height);
+    background-color: var(--white);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-lighter);
+    font-size: 0.75rem;
+    padding: 8px;
+    width: 25%;
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 20% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 8px;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+    
+    .featured-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 360px) {
+    .suggestion-card {
+        min-width: 100px;
+        padding: 8px;
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+}
