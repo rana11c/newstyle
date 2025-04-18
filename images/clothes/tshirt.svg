@@ -2,4 +2,7 @@
     <path d="M50,50 L80,20 L120,20 L150,50 L130,60 L130,170 L70,170 L70,60 L50,50 Z" 
           fill="#ffffff" stroke="#333333" stroke-width="4"/>
     <path d="M80,20 L100,30 L120,20" stroke="#333333" stroke-width="2" fill="none"/>
+    <path d="M100,45 L100,150" stroke="#eeeeee" stroke-width="1" fill="none" opacity="0.5"/>
+    <path d="M85,45 L85,150" stroke="#eeeeee" stroke-width="1" fill="none" opacity="0.5"/>
+    <path d="M115,45 L115,150" stroke="#eeeeee" stroke-width="1" fill="none" opacity="0.5"/>
 </svg>
