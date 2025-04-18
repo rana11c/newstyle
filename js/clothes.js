@@ -63,11 +63,11 @@ class ClothesManager {
                 const itemIcon = document.createElement('div');
                 itemIcon.className = 'outfit-item-icon';
                 
-                // Use SVG images if available, fallback to icons
+                // Use real images if available, fallback to icons
                 if (item.image && !item.image.includes('-')) {
-                    // Use SVG image
-                    itemIcon.innerHTML = `<img src="images/clothes/${item.image}.svg" alt="${item.name}" 
-                        onerror="this.onerror=null; this.style.display='none'; this.parentNode.innerHTML='<i class=\\'fas fa-tshirt\\'></i>';">`;
+                    // Use real image first, fallback to SVG
+                    itemIcon.innerHTML = `<img src="images/real/clothes/${item.image}.jpg" alt="${item.name}" 
+                        onerror="this.onerror=null; this.src='images/clothes/${item.image}.svg'; this.onerror=function() {this.style.display='none'; this.parentNode.innerHTML='<i class=\\'fas fa-tshirt\\'></i>';}">`;
                 } else {
                     // Use font awesome icon based on category
                     const icon = document.createElement('i');
@@ -167,7 +167,9 @@ class ClothesManager {
                     <div class="clothing-item-img">
                         ${item.image.includes('-') 
                             ? `<i class="fas fa-${item.image || 'tshirt'}"></i>`
-                            : `<img src="images/clothes/${item.image}.svg" alt="${item.name}" onerror="this.onerror=null; this.innerHTML='<i class=\\'fas fa-${item.image}\\'></i>';">`
+                            : `<img src="images/real/clothes/${item.image}.jpg" alt="${item.name}" 
+                                 onerror="this.onerror=null; this.src='images/clothes/${item.image}.svg'; 
+                                 this.onerror=function() {this.style.display='none'; this.parentNode.innerHTML='<i class=\\'fas fa-tshirt\\'></i>';}">`
                         }
                     </div>
                     <div class="clothing-item-details">
@@ -215,7 +217,9 @@ class ClothesManager {
                 <div class="clothing-image">
                     ${item.image.includes('-') 
                         ? `<i class="fas fa-${item.image || 'tshirt'} fa-4x"></i>`
-                        : `<img src="images/clothes/${item.image}.svg" alt="${item.name}" onerror="this.onerror=null; this.innerHTML='<i class=\\'fas fa-${item.image} fa-4x\\'></i>';">`
+                        : `<img src="images/real/clothes/${item.image}.jpg" alt="${item.name}" 
+                            onerror="this.onerror=null; this.src='images/clothes/${item.image}.svg'; 
+                            this.onerror=function() {this.style.display='none'; this.parentNode.innerHTML='<i class=\\'fas fa-${item.image || 'tshirt'} fa-4x\\'></i>';}">`
                     }
                 </div>
                 <h3>${item.name}</h3>
@@ -392,7 +396,9 @@ class ClothesManager {
                     <div class="clothing-item-img">
                         ${item.image.includes('-') 
                             ? `<i class="fas fa-${item.image || 'tshirt'}"></i>`
-                            : `<img src="images/clothes/${item.image}.svg" alt="${item.name}" onerror="this.onerror=null; this.innerHTML='<i class=\\'fas fa-${item.image}\\'></i>';">`
+                            : `<img src="images/real/clothes/${item.image}.jpg" alt="${item.name}" 
+                                onerror="this.onerror=null; this.src='images/clothes/${item.image}.svg'; 
+                                this.onerror=function() {this.style.display='none'; this.parentNode.innerHTML='<i class=\\'fas fa-${item.image || 'tshirt'}\\'></i>';}">`
                         }
                     </div>
                     <div class="clothing-item-details">
