@@ -1,0 +1,57 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Winter Jacket -->
+    <g transform="translate(0, -20) scale(0.7)">
+        <path d="M40,40 L80,15 L120,15 L160,40 L145,60 L145,170 L55,170 L55,60 L40,40 Z" 
+              fill="#0074D9" stroke="#333333" stroke-width="4"/>
+        <path d="M80,15 L100,35 L120,15" stroke="#333333" stroke-width="2" fill="none"/>
+        <path d="M55,70 L65,80 L55,90 L65,100 L55,110 L65,120 L55,130" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M145,70 L135,80 L145,90 L135,100 L145,110 L135,120 L145,130" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M80,15 L80,10 L120,10 L120,15" fill="#003366" stroke="#333333" stroke-width="2"/>
+        <path d="M75,60 L125,60" stroke="#003366" stroke-width="10" fill="none"/>
+        <path d="M72,80 L128,80" stroke="#003366" stroke-width="4" fill="none"/>
+    </g>
+    
+    <!-- Warm Pants -->
+    <g transform="translate(0, 50) scale(0.6)">
+        <path d="M60,30 L140,30 L145,50 L130,180 L110,180 L100,80 L90,180 L70,180 L55,50 L60,30 Z" 
+              fill="#333333" stroke="#222222" stroke-width="4"/>
+        <path d="M60,30 L140,30 L135,60 L65,60 L60,30 Z" fill="#222222" stroke="none"/>
+        <path d="M70,50 L85,50" stroke="#444444" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M115,50 L130,50" stroke="#444444" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M75,110 L90,110" stroke="#444444" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M110,110 L125,110" stroke="#444444" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M80,150 L90,150" stroke="#444444" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M110,150 L120,150" stroke="#444444" stroke-width="2" fill="none" opacity="0.3"/>
+    </g>
+    
+    <!-- Winter Boots -->
+    <g transform="translate(40, 140) scale(0.5)">
+        <path d="M30,120 C40,110 120,110 130,120 L150,130 C160,140 160,160 150,170 L30,170 C20,160 20,130 30,120 Z" 
+              fill="#663300" stroke="#442200" stroke-width="4"/>
+        <path d="M30,170 L30,180 L150,180 L150,170" stroke="#442200" stroke-width="4" fill="none"/>
+        <path d="M40,180 L40,185 L140,185 L140,180" stroke="#442200" stroke-width="2" fill="none"/>
+        <path d="M35,140 L145,140" stroke="#774400" stroke-width="3" fill="none" opacity="0.5"/>
+        <path d="M35,155 L145,155" stroke="#774400" stroke-width="3" fill="none" opacity="0.5"/>
+        <path d="M75,115 L75,165" stroke="#774400" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M105,115 L105,165" stroke="#774400" stroke-width="2" fill="none" opacity="0.5"/>
+    </g>
+    
+    <!-- Scarf -->
+    <g transform="translate(-5, 7) scale(0.7)">
+        <path d="M70,65 C75,60 100,60 105,65 L115,75 C120,80 140,60 145,65 L155,75 C160,80 180,60 185,65 L185,75 C180,80 160,100 155,95 L145,85 C140,80 120,100 115,95 L105,85 C100,80 80,100 75,95 L75,85 C70,80 50,100 45,95 L45,85 C40,80 20,100 15,95 L15,85 C10,80 5,60 10,55 L20,45 C25,40 45,60 50,55 L60,45 C65,40 70,60 75,55 Z" 
+              fill="#FF4136" stroke="#cc0000" stroke-width="2"/>
+    </g>
+    
+    <!-- Cold icon -->
+    <g transform="translate(145, 30)">
+        <path d="M5,-15 A15,15 0 0,0 -5,-15 L-8,-8 L-15,-5 A15,15 0 0,0 -15,5 L-8,8 L-5,15 A15,15 0 0,0 5,15 L8,8 L15,5 A15,15 0 0,0 15,-5 L8,-8 Z" 
+              fill="#6dd2f7" stroke="#49a5d8" stroke-width="1"/>
+        <path d="M0,-10 L0,10 M-10,0 L10,0 M-7,-7 L7,7 M-7,7 L7,-7" 
+              stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Temperature -->
+    <g transform="translate(160, 65)">
+        <text font-family="Arial" font-size="16" font-weight="bold" fill="#49a5d8">5°</text>
+    </g>
+</svg>

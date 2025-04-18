@@ -280,6 +280,12 @@ html, body {
     color: var(--text-lighter);
 }
 
+.clothing-item-img img {
+    max-height: 90%;
+    max-width: 90%;
+    object-fit: contain;
+}
+
 .clothing-item-details {
     padding: 12px;
 }
@@ -382,6 +388,66 @@ html, body {
     max-width: 400px;
     border-radius: var(--border-radius);
     position: relative;
+}
+
+.clothing-details {
+    padding-bottom: 16px;
+}
+
+.clothing-details .clothing-image {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    text-align: center;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clothing-details .clothing-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.clothing-details .clothing-info {
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.clothing-details .item-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.clothing-details .favorite-btn, 
+.clothing-details .share-item-btn {
+    flex: 1;
+    background-color: var(--white);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.clothing-details .favorite-btn i {
+    color: #ccc;
+}
+
+.clothing-details .favorite-btn.active i {
+    color: var(--error-color);
+}
+
+.clothing-details .share-item-btn i {
+    color: var(--primary-color);
 }
 
 .close-modal {

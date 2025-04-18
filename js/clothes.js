@@ -147,7 +147,10 @@ class ClothesManager {
                 
                 itemElement.innerHTML = `
                     <div class="clothing-item-img">
-                        <i class="fas fa-${item.image || 'tshirt'}"></i>
+                        ${item.image.includes('-') 
+                            ? `<i class="fas fa-${item.image || 'tshirt'}"></i>`
+                            : `<img src="images/clothes/${item.image}.svg" alt="${item.name}" onerror="this.onerror=null; this.innerHTML='<i class=\\'fas fa-${item.image}\\'></i>';">`
+                        }
                     </div>
                     <div class="clothing-item-details">
                         <div class="clothing-item-name">${item.name}</div>
@@ -192,7 +195,10 @@ class ClothesManager {
             <div class="modal-content clothing-details">
                 <span class="close-modal">&times;</span>
                 <div class="clothing-image">
-                    <i class="fas fa-${item.image || 'tshirt'} fa-4x"></i>
+                    ${item.image.includes('-') 
+                        ? `<i class="fas fa-${item.image || 'tshirt'} fa-4x"></i>`
+                        : `<img src="images/clothes/${item.image}.svg" alt="${item.name}" onerror="this.onerror=null; this.innerHTML='<i class=\\'fas fa-${item.image} fa-4x\\'></i>';">`
+                    }
                 </div>
                 <h3>${item.name}</h3>
                 <div class="clothing-info">
@@ -201,11 +207,19 @@ class ClothesManager {
                     <p><strong>اللون:</strong> ${item.color}</p>
                     <p><strong>نطاق درجة الحرارة:</strong> ${item.minTemp}° - ${item.maxTemp}°</p>
                     <p><strong>مناسب للطقس:</strong> ${item.weather.join('، ')}</p>
+                    ${item.description ? `<p><strong>الوصف:</strong> ${item.description}</p>` : ''}
+                    ${item.price ? `<p><strong>السعر:</strong> ${item.price} ر.س</p>` : ''}
                 </div>
-                <button class="favorite-btn ${item.favorite ? 'active' : ''}">
-                    <i class="fas fa-heart"></i>
-                    <span>${item.favorite ? 'إزالة من المفضلة' : 'إضافة للمفضلة'}</span>
-                </button>
+                <div class="item-actions">
+                    <button class="favorite-btn ${item.favorite ? 'active' : ''}">
+                        <i class="fas fa-heart"></i>
+                        <span>${item.favorite ? 'إزالة من المفضلة' : 'إضافة للمفضلة'}</span>
+                    </button>
+                    <button class="share-item-btn">
+                        <i class="fas fa-share-alt"></i>
+                        <span>مشاركة</span>
+                    </button>
+                </div>
             </div>
         `;
         
@@ -241,6 +255,97 @@ class ClothesManager {
                 buttonText.textContent = 'إضافة للمفضلة';
             }
         });
+        
+        // Setup share button
+        const shareBtn = modal.querySelector('.share-item-btn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                // Show share UI
+                const shareModal = document.createElement('div');
+                shareModal.className = 'modal';
+                shareModal.innerHTML = `
+                    <div class="modal-content share-modal">
+                        <span class="close-modal">&times;</span>
+                        <h3>مشاركة ${item.name}</h3>
+                        <p>شارك هذا المنتج مع أصدقائك</p>
+                        <div class="share-options">
+                            <button class="share-option" data-platform="whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>واتساب</span>
+                            </button>
+                            <button class="share-option" data-platform="facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>فيسبوك</span>
+                            </button>
+                            <button class="share-option" data-platform="twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>تويتر</span>
+                            </button>
+                            <button class="share-option" data-platform="email">
+                                <i class="fas fa-envelope"></i>
+                                <span>البريد الإلكتروني</span>
+                            </button>
+                            <button class="share-option" data-platform="copy">
+                                <i class="fas fa-link"></i>
+                                <span>نسخ الرابط</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(shareModal);
+                
+                // Show modal
+                setTimeout(() => shareModal.style.display = 'block', 10);
+                
+                // Setup close functionality
+                const closeShareModal = shareModal.querySelector('.close-modal');
+                closeShareModal.addEventListener('click', () => {
+                    shareModal.style.display = 'none';
+                    setTimeout(() => shareModal.remove(), 300);
+                });
+                
+                // Setup share options
+                const shareOptions = shareModal.querySelectorAll('.share-option');
+                shareOptions.forEach(option => {
+                    option.addEventListener('click', () => {
+                        const platform = option.dataset.platform;
+                        const itemUrl = `${window.location.origin}?item=${itemId}`;
+                        
+                        let shareUrl = '';
+                        switch (platform) {
+                            case 'whatsapp':
+                                shareUrl = `https://wa.me/?text=${encodeURIComponent(`${item.name} - ${itemUrl}`)}`;
+                                break;
+                            case 'facebook':
+                                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(itemUrl)}`;
+                                break;
+                            case 'twitter':
+                                shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`${item.name}`)}&url=${encodeURIComponent(itemUrl)}`;
+                                break;
+                            case 'email':
+                                shareUrl = `mailto:?subject=${encodeURIComponent(`${item.name}`)}&body=${encodeURIComponent(`${item.name} - ${itemUrl}`)}`;
+                                break;
+                            case 'copy':
+                                // Copy to clipboard
+                                navigator.clipboard.writeText(itemUrl).then(() => {
+                                    alert('تم نسخ الرابط بنجاح!');
+                                }).catch(err => {
+                                    console.error('Error copying text: ', err);
+                                });
+                                break;
+                        }
+                        
+                        if (shareUrl) {
+                            window.open(shareUrl, '_blank');
+                        }
+                        
+                        // Close share modal
+                        shareModal.style.display = 'none';
+                        setTimeout(() => shareModal.remove(), 300);
+                    });
+                });
+            });
+        }
     }
 
     // Show favorites for the current user
@@ -267,7 +372,10 @@ class ClothesManager {
                 
                 itemElement.innerHTML = `
                     <div class="clothing-item-img">
-                        <i class="fas fa-${item.image || 'tshirt'}"></i>
+                        ${item.image.includes('-') 
+                            ? `<i class="fas fa-${item.image || 'tshirt'}"></i>`
+                            : `<img src="images/clothes/${item.image}.svg" alt="${item.name}" onerror="this.onerror=null; this.innerHTML='<i class=\\'fas fa-${item.image}\\'></i>';">`
+                        }
                     </div>
                     <div class="clothing-item-details">
                         <div class="clothing-item-name">${item.name}</div>
