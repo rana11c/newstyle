@@ -1,0 +1,53 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <!-- Jacket -->
+    <g transform="translate(0, -15) scale(0.7)">
+        <path d="M40,40 L80,20 L120,20 L160,40 L150,60 L150,170 L50,170 L50,60 L40,40 Z" 
+              fill="#cccccc" stroke="#333333" stroke-width="4"/>
+        <path d="M80,20 L100,35 L120,20" stroke="#333333" stroke-width="2" fill="none"/>
+        <path d="M60,45 L60,150" stroke="#555555" stroke-width="3" fill="none"/>
+        <path d="M140,45 L140,150" stroke="#555555" stroke-width="3" fill="none"/>
+        <path d="M60,80 L75,80" stroke="#555555" stroke-width="3" fill="none"/>
+        <path d="M60,100 L75,100" stroke="#555555" stroke-width="3" fill="none"/>
+        <path d="M60,120 L75,120" stroke="#555555" stroke-width="3" fill="none"/>
+        <path d="M125,80 L140,80" stroke="#555555" stroke-width="3" fill="none"/>
+        <path d="M125,100 L140,100" stroke="#555555" stroke-width="3" fill="none"/>
+        <path d="M125,120 L140,120" stroke="#555555" stroke-width="3" fill="none"/>
+    </g>
+    
+    <!-- Jeans -->
+    <g transform="translate(0, 50) scale(0.6)">
+        <path d="M60,30 L140,30 L145,50 L130,180 L110,180 L100,80 L90,180 L70,180 L55,50 L60,30 Z" 
+              fill="#3366cc" stroke="#333333" stroke-width="4"/>
+        <path d="M60,30 L140,30 L135,60 L65,60 L60,30 Z" fill="#2244aa" stroke="none"/>
+        <path d="M70,50 L85,50" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M115,50 L130,50" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M75,110 L90,110" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M110,110 L125,110" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M80,150 L90,150" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M110,150 L120,150" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.3"/>
+    </g>
+    
+    <!-- Shoes -->
+    <g transform="translate(40, 140) scale(0.5)">
+        <path d="M30,120 C40,110 120,110 130,120 L150,130 C160,140 160,150 150,160 L30,160 C20,150 20,130 30,120 Z" 
+              fill="#333333" stroke="#222222" stroke-width="4"/>
+        <path d="M30,160 L30,170 L150,170 L150,160" stroke="#222222" stroke-width="4" fill="none"/>
+        <path d="M40,170 L40,175 L140,175 L140,170" stroke="#222222" stroke-width="2" fill="none"/>
+        <path d="M35,140 L145,140" stroke="#555555" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M75,115 L85,135" stroke="#555555" stroke-width="2" fill="none" opacity="0.5"/>
+        <path d="M95,115 L105,135" stroke="#555555" stroke-width="2" fill="none" opacity="0.5"/>
+    </g>
+    
+    <!-- Cloudy icon -->
+    <g transform="translate(145, 30)">
+        <path d="M-10,-5 C-10,-12 -5,-15 0,-15 C5,-15 10,-10 10,-5 C10,0 5,5 0,5 C-5,5 -10,0 -10,-5 Z" 
+              fill="#eeeeee" stroke="#cccccc" stroke-width="1"/>
+        <path d="M-5,0 C-5,-5 0,-8 5,-8 C10,-8 15,-3 15,2 C15,7 10,10 5,10 C0,10 -5,7 -5,2 Z" 
+              fill="#ffffff" stroke="#dddddd" stroke-width="1"/>
+    </g>
+    
+    <!-- Temperature -->
+    <g transform="translate(160, 65)">
+        <text font-family="Arial" font-size="16" font-weight="bold" fill="#ff6b8b">17°</text>
+    </g>
+</svg>
